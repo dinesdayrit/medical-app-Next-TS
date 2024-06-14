@@ -1,6 +1,6 @@
 "use client"
 import { Tabs } from "flowbite-react";
-import {  X } from "lucide-react";
+import { Stethoscope, Syringe, Microscope, Activity } from "lucide-react";
 import ServiceList from "./Services/ServiceList";
 import LinkCards from "./Doctors/LinkCards";
 
@@ -42,7 +42,7 @@ export default function TabItems() {
   const tabs = [
     {
       title: "Popular Services",
-      icon: X,
+      icon: Microscope,
       component: <ServiceList services={services}/>,
       content:[
 
@@ -50,19 +50,19 @@ export default function TabItems() {
     },
     {
       title: "Doctors",
-      icon: X,
+      icon: Stethoscope,
       component: <LinkCards />,
       content:[]
     },
     {
       title: "Specialist",
-      icon: X,
+      icon: Activity,
       component: <LinkCards />,
       content:[]
     },
     {
       title: "Symptoms",
-      icon: X,
+      icon: Syringe,
       component: <LinkCards />,
       content:[]
     }
