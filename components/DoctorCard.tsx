@@ -43,7 +43,7 @@ export default function DoctorCard({ isInPerson=false }:{isInPerson?: boolean}) 
     ]
   return (
     <div className="border border-gray-200 bg-white inline-flex flex-col justify-start py-8 px-3 rounded-md hover:border-gray-800 duration-500 transition-all">
-      <Link href="#">
+      <Link href="/doctor/slug">
         <h2 className="font-bold uppercase">Dayrit, Lucas</h2>
         {isInPerson &&
             <p className="py-3">123 street. Davao City 8000</p>
@@ -72,15 +72,15 @@ export default function DoctorCard({ isInPerson=false }:{isInPerson?: boolean}) 
         <h3 className="flex gap-4 justify-between items-center">
             <span className="text-sm text-gray-600">Tue, Mar 12</span> <span className="font-bold">Php 500</span>
         </h3>
-        <div className="py-3 grid grid-cols-3 gap-3">
+        <div className="py-3 grid grid-cols-3 gap-2">
             {
                 timeStamp.slice(0,5).map((item, i)=>{
-                    return <Link key={i} href="#" className="bg-blue-600 text-center text-white p-2">
+                    return <Link key={i} href="#" className="bg-blue-600 text-sm text-center text-white p-2">
                         {item.time}{item.period}
                     </Link>
                 })
             }
-            <Link href="#" className="bg-blue-900 text-center text-white p-2">
+            <Link href="/doctor/slug" className="bg-blue-900 text-sm text-center text-white p-2">
             See more..</Link>
         </div>
       </div>
