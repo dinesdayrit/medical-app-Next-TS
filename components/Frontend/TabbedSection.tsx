@@ -1,5 +1,6 @@
 import React from "react";
 import TabItems from "./TabItems";
+import SectionHeading from "../SectionHeading";
 
 const TabbedSection = () => {
   return (
@@ -8,9 +9,7 @@ const TabbedSection = () => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-12 max-w-5xl text-center lg:mb-20">
-              <h2 className="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
-                Browse your Doctors By.
-              </h2>
+              <SectionHeading title="Browse your Doctors By." />
               <p className="text-base text-body-color dark:text-dark-6">
                 Choose from thousands of providers at every day affordable. Book online today.
               </p>
