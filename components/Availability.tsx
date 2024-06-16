@@ -50,9 +50,9 @@ export function Availability() {
   
 
   return (
-    <div>
+    <div className="mb=[200px]">
         <h2 className="font-bold py-4 font-xl text-slate-600 uppercase">Select a Date and Time</h2>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 gap-4 lg:gap-0">
         <div className="sm:col-span-1 col-span-full">
         <Calendar
         mode="single"

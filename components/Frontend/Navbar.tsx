@@ -1,28 +1,16 @@
 'use client'
 
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import {
   Dialog,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
   PopoverGroup,
-  PopoverPanel,
-  Transition,
 } from '@headlessui/react'
 import {
-  ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 
 function classNames(...classes:any) {
@@ -33,7 +21,7 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 bg-white border-b border-gray-400/30 w-full z-50">
+    <header className="fixed top-0 bg-white w-full z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
@@ -63,9 +51,9 @@ export default function Example() {
           </a>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-800 bg-blue-500 py-3 px-6 rounded-md">
+          <Link href="/login" className="text-sm font-semibold leading-6 text-gray-800 bg-blue-500 py-3 px-6 rounded-md">
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </div>
       </nav>
       <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -113,12 +101,12 @@ export default function Example() {
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
+                <Link
+                  href="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </Link>
               </div>
             </div>
           </div>

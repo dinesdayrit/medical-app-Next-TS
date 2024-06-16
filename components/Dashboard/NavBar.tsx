@@ -31,7 +31,7 @@ export default function Navbar() {
                 alt=""
               />
               <img
-                className="hidden w-auto h-16 lg:block"
+                className="hidden w-auto h-12 lg:block"
                 src="/logo.png"
                 alt=""
               />
