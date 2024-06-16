@@ -1,4 +1,5 @@
 import DoctorDetails from '@/components/DoctorDetails'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
@@ -31,7 +32,7 @@ export default function page() {
         <p>Php 500</p>
         <p>Tue, Mar 12 - 8:00 AM</p>
         </div>
-        <button className="bg-slate-900 tracking-widest rounded-full text-white text-center w-1/3">+BOOK</button>
+        <Button className=" tracking-widest rounded-full w-1/3">+BOOK</Button>
         </div>
        </div>
     </div>

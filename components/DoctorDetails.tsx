@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Availability } from "./Availability";
 
 export default function DoctorDetails() {
   const [ isActive, setIsActive ] = useState('services');
@@ -26,9 +27,7 @@ export default function DoctorDetails() {
             Service Details Component
           </div>
         ):(
-          <div>
-          Availability Component
-        </div>
+          <Availability />
         )}
 
 
