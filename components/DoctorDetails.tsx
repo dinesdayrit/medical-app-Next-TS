@@ -10,12 +10,12 @@ export default function DoctorDetails() {
     <div>
       <div className="flex flex-row items center justify-between ">
         <button onClick={() => setIsActive('services')} 
-        className={`w-full p-2 uppercase ${isActive === 'services' ? "bg-blue-600 text-white" : "bg-slate-100"}`}
+        className={`w-full p-2 uppercase font-bold ${isActive === 'services' ? "bg-blue-600 text-white" : "bg-slate-100"}`}
         >
           Service Details
         </button>
         <button onClick={() => setIsActive('availability')} 
-        className={`w-full p-2  uppercase ${isActive === 'availability' ? "bg-blue-600 text-white" : "bg-slate-100"}`}
+        className={`w-full p-2  uppercase tracking-widest font-bold ${isActive === 'availability' ? "bg-blue-600 text-white" : "bg-slate-100"}`}
         >
           Availability
         </button>

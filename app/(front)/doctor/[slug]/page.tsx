@@ -24,6 +24,16 @@ export default function page() {
         </div>
         <DoctorDetails />
        </div>
+       
+       <div className="fixed bottom-0 left-0 w-full shadow-2xl py-8 px-6 rounded-md flex justify-center items-center bg-white z-50">
+        <div className="max-w-4xl w-full flex justify-between">
+        <div>
+        <p>Php 500</p>
+        <p>Tue, Mar 12 - 8:00 AM</p>
+        </div>
+        <button className="bg-slate-900 tracking-widest rounded-full text-white text-center w-1/3">+BOOK</button>
+        </div>
+       </div>
     </div>
   )
 }
