@@ -10,3 +10,8 @@ export type RegisterInputProps = {
     password: string,
     confirmPassword: string
 }
+
+export type LoginInputProps = {
+    email: String,
+    password: string,
+}
