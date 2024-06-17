@@ -3,14 +3,21 @@ import { type RegisterInputProps } from "@/types/type";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import TextInput from "../FormInputs/TextInput";
+import SubmitButton from "../FormInputs/SubmitButton";
+import { useState } from "react";
 
 export default function SignupForm() {
+  const [isLoading, setIsLoading] =useState(false);
   const { register, handleSubmit, watch, formState:{ errors } } = useForm<RegisterInputProps>()
 
   const password = watch("password");
 
   async function onSubmit(data: RegisterInputProps) {
-    console.log(data);
+    setIsLoading(true);
+    setTimeout(async () => {
+      console.log(data);
+      setIsLoading(false);
+    }, 3000);
   }
 
   return (
@@ -110,12 +117,7 @@ export default function SignupForm() {
               </div>
   
               <div>
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Sign up
-                </button>
+                  <SubmitButton title="Sign up" isLoading={isLoading} loadingTitle="Signing up"/>
               </div>
             </form>
   
