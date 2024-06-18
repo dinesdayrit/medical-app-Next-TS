@@ -11,7 +11,7 @@ export default function page() {
         <div className="flex justify-between items-center">
         <div>
         <div className="flex flex-col">
-            <h2 className="font-bold text-xl uppercase">Dayrit, Lucas</h2>
+            <h2 className="font-bold text-xl uppercase"><span className="text-blue-600">Doc</span>Lucas Skyler Dayrit</h2>
             <p className="text-xs text-gray-500">Family Medicine</p>
         </div>
 

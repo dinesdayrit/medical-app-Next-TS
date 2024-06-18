@@ -1,3 +1,4 @@
+import { UserRole } from "@prisma/client"
 import { StringToBoolean } from "class-variance-authority/types"
 
 export type ServiceProps = {
@@ -6,9 +7,10 @@ export type ServiceProps = {
 
 export type RegisterInputProps = {
     name: string,
-    email: String,
+    email: string,
     password: string,
-    confirmPassword: string
+    confirmPassword: string,
+    role: UserRole
 }
 
 export type LoginInputProps = {
