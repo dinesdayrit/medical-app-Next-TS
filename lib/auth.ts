@@ -1,11 +1,10 @@
 import { AuthOptions, NextAuthOptions } from "next-auth";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prismaClient } from "./db";
- 
 import type { Adapter } from "next-auth/adapters";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcrypt";
-// more providers at https://next-auth.js.org/providers
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prismaClient) as Adapter,
   secret: process.env.NEXTAUTH_SECRET,
@@ -24,54 +23,52 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         try {
-          console.log(
-            "Authorize function called with credentials:",
-            credentials
-          );
-          // Check if user credentials are Correct
+          console.log("Authorize function called with credentials:", credentials);
+          
           if (!credentials?.email || !credentials?.password) {
+            console.log("No Inputs Found");
             throw { error: "No Inputs Found", status: 401 };
           }
-          console.log("Pass 1 checked ");
-          //Check if user exists
+          console.log("Pass 1 checked");
+
+          const startFindUser = Date.now();
           const existingUser = await prismaClient.user.findUnique({
             where: { email: credentials.email },
           });
- 
+          console.log(`User query took ${Date.now() - startFindUser} ms`);
+
           if (!existingUser) {
             console.log("No user found");
             throw { error: "No user found", status: 401 };
           }
- 
+          
           console.log("Pass 2 Checked");
           console.log(existingUser);
-          let passwordMatch: boolean = false;
-          //Check if Password is correct
-          if (existingUser && existingUser.password) {
-            // if user exists and password exists
-            passwordMatch = await compare(
-              credentials.password,
-              existingUser.password
-            );
-          }
+
+          const startComparePassword = Date.now();
+          const passwordMatch = existingUser.password 
+            ? await compare(credentials.password, existingUser.password)
+            : false;
+          console.log(`Password comparison took ${Date.now() - startComparePassword} ms`);
+
           if (!passwordMatch) {
             console.log("Password incorrect");
             throw { error: "Password Incorrect", status: 401 };
           }
+          
           console.log("Pass 3 Checked");
           const user = {
             id: existingUser.id,
             name: existingUser.name,
             email: existingUser.email,
             role: existingUser.role,
-            
           };
-          //
+          
           console.log("User Compiled");
           console.log(user);
           return user;
         } catch (error) {
-          console.log("aLL Failed");
+          console.log("All Failed");
           console.log(error);
           throw { error: "Something went wrong", status: 401 };
         }
@@ -80,13 +77,17 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
+      const startFindFirst = Date.now();
       const dbUser = await prismaClient.user.findFirst({
         where: { email: token?.email ?? "" },
       });
+      console.log(`JWT user query took ${Date.now() - startFindFirst} ms`);
+
       if (!dbUser) {
         token.id = user!.id;
         return token;
       }
+
       return {
         id: dbUser.id,
         name: dbUser.name,
