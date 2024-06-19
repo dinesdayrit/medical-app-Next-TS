@@ -5,17 +5,44 @@ import { useState } from "react";
 import SubmitButton from "../FormInputs/SubmitButton";
 import { useForm } from "react-hook-form";
 import { type LoginInputProps } from "@/types/type";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { Alert } from "flowbite-react";
+import { HiInformationCircle } from "react-icons/hi";
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginInputProps>();
+  const [showNotification, setShowNotification] = useState(false);
+  const router = useRouter();
+  const { register, handleSubmit,reset,  formState: { errors } } = useForm<LoginInputProps>();
 
   async function onSubmit(data: LoginInputProps) {
-    setIsLoading(true);
-    setTimeout(async () => {
-      console.log(data);
+    try {
+      setIsLoading(true);
+      console.log("Attempting to sign in with credentials:", data);
+      const loginData = await signIn("credentials", {
+        ...data,
+        redirect: false,
+      });
+      console.log("SignIn response:", loginData);
+      if (loginData?.error) {
+        setIsLoading(false);
+        toast.error("Sign-in error: Check your credentials");
+        setShowNotification(true);
+      } else {
+        // Sign-in was successful
+        setShowNotification(false);
+        reset();
+        setIsLoading(false);
+        toast.success("Login Successful");
+        router.push("/dashboard");
+      }
+    } catch (error) {
       setIsLoading(false);
-    }, 3000);
+      console.error("Network Error:", error);
+      toast.error("Its seems something is wrong with your Network");
+    }
   }
 
   return (
@@ -34,6 +61,12 @@ export default function LoginForm() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" action="#" method="POST">
+          {showNotification && (
+            <Alert color="failure" icon={HiInformationCircle}>
+              <span className="font-medium">Sign-in error!</span> Please Check
+              your credentials
+            </Alert>
+          )}
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
