@@ -73,6 +73,39 @@ export async function createUser(formData: RegisterInputProps){
         return {
             error: "Something weng wrong"
         }
+    } 
+}
+
+export async function getUserById(id:string){
+  if(id){
+    try{
+      const user = await prismaClient.user.findUnique({
+        where:{
+          id
+        }
+      })
+      return user
+    } catch (error) {
+      console.log(error)
     }
-    
+  }
+}
+
+
+export async function updateUserById(id:string) {
+  if(id){
+    try{
+      const updatedUser = await prismaClient.user.update({
+        where:{
+          id,
+        },
+        data:{
+          isVerfied: true,
+        }
+      });
+      return updatedUser
+    } catch (error){
+      console.log(error)
+    }
+  }
 }
