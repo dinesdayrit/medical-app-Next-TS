@@ -1,3 +1,4 @@
+import CustomAccordion from "@/components/Frontend/Services/CustomAccordion";
 import { Button } from "@/components/ui/button";
 import { Description } from "@headlessui/react";
 import { Check } from "lucide-react";
@@ -38,8 +39,8 @@ export default function page() {
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="">
-        <h2 className="font-semibold text-2xl md:text-5xl leading-loose">Build a thriving <span className="text-blue-600">direct-pay</span> practice with Medical App.</h2>
-        <p className="py-4 text-sm">Welcome to Medical App, where connecting with patients is made easier than ever before. Our platform streamlines the process of managing appointments, providing care remotely, and keeping track of patient records</p>
+        <h2 className="font-semibold text-2xl md:text-5xl leading-loose">Build a thriving <span className="text-blue-600">direct-pay</span> practice with DiAL Doc.</h2>
+        <p className="py-4 text-sm">Welcome to DiAL Doc, where connecting with patients is made easier than ever before. Our platform streamlines the process of managing appointments, providing care remotely, and keeping track of patient records</p>
         <Button className="bg-blue-600 hover:bg-blue-600/90">
         <Link href="#">List your Service</Link>
         </Button>
@@ -68,8 +69,8 @@ export default function page() {
           <Image src="/doctor.jpg" height={540} width={360} alt="/" className="h-full w-full hidden md:block"/>
         </div>
         <div className="">
-        <h2 className="font-semibold text-xl md:text-2xl leading-loose">Join medical app to increase your <span className="text-blue-600">revenue</span> today.</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2"> 
+        <h2 className="text-xl md:text-2xl leading-loose">Join DiAL Doc to increase your <span className="text-blue-600">revenue</span> today.</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4"> 
             {
               whyUs.map((item, i)=> {
                 return (
@@ -85,6 +86,14 @@ export default function page() {
         </div>
         </div>
       </section>
+
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-center text-xl">FAQ</h1>
+        <CustomAccordion />
+        </div>
+      </section>
+      
     </div>
   )
 }

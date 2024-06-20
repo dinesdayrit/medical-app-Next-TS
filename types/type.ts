@@ -17,3 +17,10 @@ export type LoginInputProps = {
     email: string,
     password: string,
 }
+
+export type FAQ = {
+    qn: string;
+    ans: string;
+  };
+  
+  export type FAQArray = FAQ[];
