@@ -8,7 +8,7 @@ export default function Layout({children}:{children:ReactNode}) {
   return (
     <div className="bg-white">
       <Navbar />
-      <div className="mt-[60px]">
+      <div className="mt-[65px]">
       {children}
       </div>
       <Footer />

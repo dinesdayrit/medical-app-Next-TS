@@ -8,8 +8,8 @@ export default function Footer() {
             label: "Company",
             items: [
                 {
-                    href: 'javascript:void()',
-                    name: 'Partners'
+                    href: '/join/doctors',
+                    name: 'List your Service'
                 },
                 {
                     href: 'javascript:void()',
