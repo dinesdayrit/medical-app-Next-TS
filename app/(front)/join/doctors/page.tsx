@@ -38,7 +38,7 @@ export default function page() {
   return (
     <div className="min-h-screen">
       <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="">
         <h2 className="font-semibold text-2xl md:text-5xl leading-loose">Build a thriving <span className="text-blue-600">direct-pay</span> practice with DiAL Doc.</h2>
         <p className="py-4 text-sm">Welcome to DiAL Doc, where connecting with patients is made easier than ever before. Our platform streamlines the process of managing appointments, providing care remotely, and keeping track of patient records</p>
@@ -65,9 +65,9 @@ export default function page() {
       </section>
 
       <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <Image src="/doctor.jpg" height={540} width={360} alt="/" className="h-full w-full hidden md:block"/>
+          <Image src="/whyUs.jpg" height={6644} width={4429} alt="/" className="h-full w-full hidden md:block"/>
         </div>
         <div className="">
         <h2 className="text-xl md:text-2xl leading-loose">Join DiAL Doc to increase your <span className="text-blue-600">revenue</span> today.</h2>
