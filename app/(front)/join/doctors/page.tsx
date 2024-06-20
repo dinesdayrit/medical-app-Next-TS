@@ -1,4 +1,5 @@
 import CustomAccordion from "@/components/Frontend/Services/CustomAccordion";
+import PricingPlans from "@/components/Frontend/Services/PricingPlans";
 import { Button } from "@/components/ui/button";
 import { Description } from "@headlessui/react";
 import { Check } from "lucide-react";
@@ -84,6 +85,12 @@ export default function page() {
             }
         </div>
         </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+            <PricingPlans />
         </div>
       </section>
 
